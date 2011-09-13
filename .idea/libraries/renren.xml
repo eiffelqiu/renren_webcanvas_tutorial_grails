@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="renren">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web-app/WEB-INF/lib/Renren-api-java-sdk.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web-app/WEB-INF/lib/Json-simple-1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
