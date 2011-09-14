@@ -17,6 +17,8 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
+            欢迎 : ${user?.name}  <br>
+            <img src="${album?.url}"/>
             <div class="list">
                 <table>
                     <thead>

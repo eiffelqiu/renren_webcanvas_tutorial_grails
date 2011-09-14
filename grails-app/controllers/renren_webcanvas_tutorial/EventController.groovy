@@ -1,6 +1,11 @@
 package renren_webcanvas_tutorial
 
+import com.renren.api.client.RenrenApiClient
+import com.yourdomain.website.model.Album
+
 class EventController {
+
+    def albumService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -10,7 +15,11 @@ class EventController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [eventInstanceList: Event.list(params), eventInstanceTotal: Event.count()]
+        RenrenApiClient apiClient = (RenrenApiClient) session.getAttribute("apiClient")
+        Album album = albumService.fetchAlbum(apiClient)
+        [eventInstanceList: Event.list(params), eventInstanceTotal: Event.count(),
+        expiresTime:session.getAttribute("expiresTime"),
+        user:session.getAttribute("user"),album:album]
     }
 
     def create = {

@@ -5,10 +5,7 @@ import com.renren.api.client.utils.HttpURLUtils;
 import com.yourdomain.website.config.AppConfig;
 import com.yourdomain.website.dao.RenrenUserMappingDAO;
 import com.yourdomain.website.dao.UserDAO;
-import com.yourdomain.website.model.Album;
 import com.yourdomain.website.model.User;
-import com.yourdomain.website.service.AlbumService;
-import com.yourdomain.website.service.impl.AlbumServiceImpl;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -64,20 +61,20 @@ public class RenrenLoginServlet extends HttpServlet {
                     String name = (String) currentUser.get("name");
                     String headurl = (String) currentUser.get("headurl");
                     String tinyurl = (String) currentUser.get("tinyurl");
-
+                    request.getSession().setAttribute("apiClient", apiClient);
                     // 获取第一个相册
-                    AlbumService albumService = new AlbumServiceImpl(apiClient.getRenrenApiInvoker());
-                    System.out.println("ouid " + rrUid);
-                    JSONArray albumInfo = albumService.getInfo(String.valueOf(rrUid), "name,url");
-                    if (albumInfo != null && albumInfo.size() > 0) {
-                        JSONObject currentAlbum = (JSONObject) albumInfo.get(0);
-                        String albumName = (String) currentAlbum.get("name");
-                        String url = (String) currentAlbum.get("url");
-                        Album album = new Album();
-                        album.setName(albumName);
-                        album.setUrl(url);
-                        request.getSession().setAttribute("album", album);
-                    }
+//                    AlbumWebService albumService = new AlbumServiceImpl(apiClient.getRenrenApiInvoker());
+//                    System.out.println("ouid " + rrUid);
+//                    JSONArray albumInfo = albumService.getInfo(String.valueOf(rrUid), "name,url");
+//                    if (albumInfo != null && albumInfo.size() > 0) {
+//                        JSONObject currentAlbum = (JSONObject) albumInfo.get(0);
+//                        String albumName = (String) currentAlbum.get("name");
+//                        String url = (String) currentAlbum.get("url");
+//                        Album album = new Album();
+//                        album.setName(albumName);
+//                        album.setUrl(url);
+//                        request.getSession().setAttribute("album", album);
+//                    }
 
                     //判断帐号关联表里有没有现成的关联
                     String username = RenrenUserMappingDAO.getInstance().getUsername(rrUid);

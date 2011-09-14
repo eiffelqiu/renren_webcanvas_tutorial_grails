@@ -2,12 +2,12 @@ package com.yourdomain.website.service.impl;
 
 import com.renren.api.client.RenrenApiInvoker;
 import com.renren.api.client.services.impl.AbstractService;
-import com.yourdomain.website.service.AlbumService;
+import com.yourdomain.website.service.AlbumWebService;
 import org.json.simple.JSONArray;
 
 import java.util.TreeMap;
 
-public class AlbumServiceImpl extends AbstractService implements AlbumService {
+public class AlbumServiceImpl extends AbstractService implements AlbumWebService {
 
     public AlbumServiceImpl(RenrenApiInvoker renrenApiInvoker) {
         super(renrenApiInvoker);
