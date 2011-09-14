@@ -21,12 +21,9 @@ step 2
 
 search and replace "www.yourdomain.com" to your renren app website host
 
+set renren Callback URL to "http://www.yourdomain.com:8080/renren_webcanvas_tutorial/" , change domain name accordingly
+
 step 3
--------
-
-	$ mvn compile
-
-step 4
 -------
 
 	$ mvn grails:run-app
