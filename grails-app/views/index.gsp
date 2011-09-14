@@ -81,21 +81,18 @@
             </div>
         </div>
         <div id="pageBody">
-            <h1>Welcome to Grails</h1>
-            <p>Congratulations, you have successfully started your first Grails application! At the moment
-            this is the default page, feel free to modify it to either redirect to a controller or display whatever
-            content you may choose. Below is a list of controllers that are currently deployed in this application,
-            click on each to execute its default action:</p>
+            <h1>Welcome to RenRen API app</h1>
 
             <div id="controllerList" class="dialog">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-                    </g:each>
-                    <li class="controller"><g:link url="/renren_webcanvas_tutorial/login">人人网入口</g:link></li>
-                </ul>
+                %{--<ul>--}%
+                    %{--<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">--}%
+                        %{--<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>--}%
+                    %{--</g:each>--}%
+                    %{--<li class="controller"><g:link url="/renren_webcanvas_tutorial/login">人人网入口</g:link></li>--}%
 
+                    <a href="https://graph.renren.com/oauth/authorize?client_id=158581&response_type=code&redirect_uri=http://www.yourdomain.com:8080/renren_webcanvas_tutorial/rr_login&display=page"><img style=
+                    "border:0px" src="img/renren_login_button.png"/></a>
+                %{--</ul>--}%
             </div>
         </div>
     </body>
