@@ -37,12 +37,14 @@ public class LoginServlet extends HttpServlet {
 					//用户名和密码验证通过，将用户身份信息保存在会话中
 					request.getSession().setAttribute("user", user);
 					//已登录，跳转到个人主页
-					response.sendRedirect(AppConfig.APP_NAME + "/profile");
+                    System.out.println("/" + AppConfig.APP_NAME + "/profile");
+					response.sendRedirect("/" + AppConfig.APP_NAME + "/profile");
 					return;
 				}
 			}
 		}
 		//没登录成功，跳转到登录页
-		response.sendRedirect(AppConfig.APP_NAME + "/login");
+        System.out.println("/" + AppConfig.APP_NAME + "/login");
+		response.sendRedirect("/" + AppConfig.APP_NAME + "/login");
 	}
 }

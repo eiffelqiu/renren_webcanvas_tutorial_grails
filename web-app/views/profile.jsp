@@ -6,7 +6,7 @@
     <title>Renren Website Demo -- Profile</title>
 </head>
 <body>
-<img src="${user.tinyurl}"/> <a href="/logout">退出</a> <br/>
+<img src="${user.headurl}"/> <a href="/renren_webcanvas_tutorial/logout">退出</a> <br/>
 你好，${user.name}，欢迎使用本网站。 <br/>
 相册 <p/>
 <img src="${album.url}"/>

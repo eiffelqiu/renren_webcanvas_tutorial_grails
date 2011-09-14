@@ -105,11 +105,11 @@ public class RenrenLoginServlet extends HttpServlet {
                     //将用户身份信息保存在会话里
                     request.getSession().setAttribute("user", user);
                     //已登录，跳转到个人主页
-                    response.sendRedirect(AppConfig.APP_NAME + "/profile");
+                    response.sendRedirect("/" + AppConfig.APP_NAME + "/event/list");
                     return;
                 }
             }
         }
-        response.sendRedirect(AppConfig.APP_NAME + "/login");
+        response.sendRedirect( "/" + AppConfig.APP_NAME + "/login");
     }
 }

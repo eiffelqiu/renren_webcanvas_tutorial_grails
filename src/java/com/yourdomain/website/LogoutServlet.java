@@ -1,7 +1,5 @@
 package com.yourdomain.website;
 
-import com.yourdomain.website.config.AppConfig;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +16,6 @@ public class LogoutServlet extends HttpServlet {
 		//删除当前会话信息
 		request.getSession().removeAttribute("user");
 		request.getSession().removeAttribute("expiresTime");
-		response.sendRedirect(AppConfig.APP_NAME + "/login");
+		response.sendRedirect("/login");
 	}
 }

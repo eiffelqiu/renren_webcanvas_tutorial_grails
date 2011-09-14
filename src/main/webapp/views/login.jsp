@@ -6,7 +6,7 @@
   <title>Renren Website Demo -- Login</title>
 </head>
 <body>
-  <form method="post" action="/login">
+  <form method="post" action="/renren_webcanvas_tutorial/login">
     <label for="username">用户名：</label><input id="username" type="text" name="username"/><br/>
     <label for="password">密码：</label><input id="password" type="password" name="password"/><br/>
     <input type="submit" value="登录"/>

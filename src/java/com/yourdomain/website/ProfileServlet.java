@@ -3,7 +3,6 @@ package com.yourdomain.website;
 import com.yourdomain.website.config.AppConfig;
 import com.yourdomain.website.model.User;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +20,7 @@ public class ProfileServlet extends HttpServlet {
 		User user = (User) request.getSession().getAttribute("user");
 		if (user == null) {
 			//未登录，跳转到登录页面去
-			response.sendRedirect("/login");
+			response.sendRedirect("/" + AppConfig.APP_NAME + "/login");
 			return;
 		}
 		Long expiresTime = (Long)request.getSession().getAttribute("expiresTime");
@@ -30,11 +29,12 @@ public class ProfileServlet extends HttpServlet {
 			System.out.println("expiresTime = " + expiresTime + "; currentTime = " + currentTime);
 			if (currentTime > expiresTime) {
 				//用户会话过期了，跳转到登录页面去
-				response.sendRedirect(AppConfig.APP_NAME + "/login");
+				response.sendRedirect("/" + AppConfig.APP_NAME + "/login");
 				return;
 			}
 		}
-		RequestDispatcher welcomeDispatcher = request.getRequestDispatcher("/views/profile.jsp");
-		welcomeDispatcher.forward(request, response);
+        response.sendRedirect("/" + AppConfig.APP_NAME + "/event");
+//		RequestDispatcher welcomeDispatcher = request.getRequestDispatcher("/views/profile.jsp");
+//		welcomeDispatcher.forward(request, response);
 	}
 }

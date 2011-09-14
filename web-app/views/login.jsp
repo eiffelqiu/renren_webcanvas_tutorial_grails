@@ -6,12 +6,12 @@
   <title>Renren Website Demo -- Login</title>
 </head>
 <body>
-  <form method="post" action="/login">
-    <label for="username">用户名：</label><input id="username" type="text" name="username"/><br/>
-    <label for="password">密码：</label><input id="password" type="password" name="password"/><br/>
-    <input type="submit" value="登录"/>
-  </form>
-  <p>如果你没有网站帐号，你还可以用人人网帐号登录本网站：</p>
+  <%--<form method="post" action="/renren_webcanvas_tutorial/login">--%>
+    <%--<label for="username">用户名：</label><input id="username" type="text" name="username"/><br/>--%>
+    <%--<label for="password">密码：</label><input id="password" type="password" name="password"/><br/>--%>
+    <%--<input type="submit" value="登录"/>--%>
+  <%--</form>--%>
+  <%--<p>如果你没有网站帐号，你还可以用人人网帐号登录本网站：</p>--%>
   <a href="https://graph.renren.com/oauth/authorize?client_id=${appId}&response_type=code&redirect_uri=${redirectUri}&display=page"><img style=
                     "border:0px" src="img/renren_login_button.png"/></a>
 </body>

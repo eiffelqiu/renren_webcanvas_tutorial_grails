@@ -59,8 +59,8 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("<img src=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${user.tinyurl}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("\"/> <a href=\"/logout\">退出</a> <br/>\n");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${user.headurl}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("\"/> <a href=\"/renren_webcanvas_tutorial/logout\">退出</a> <br/>\n");
       out.write("你好，");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${user.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("，欢迎使用本网站。 <br/>\n");
