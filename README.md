@@ -33,3 +33,5 @@ step 4
 -------
 
 	$ mvn grails:run-app
+
+open "http://localhost:8080/renren_webcanvas_tutorial" with your browser
