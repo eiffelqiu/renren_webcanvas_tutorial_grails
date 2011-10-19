@@ -25,5 +25,11 @@ set renren Callback URL to "http://www.yourdomain.com:8080/renren_webcanvas_tuto
 
 step 3
 -------
+add one line in your hosts file (in Mac it locate in /etc/hosts )
+
+127.0.0.1	www.yourdomain.com
+
+step 4
+-------
 
 	$ mvn grails:run-app

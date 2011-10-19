@@ -19,6 +19,7 @@ class EventController {
         Album album = albumService.fetchAlbum(apiClient)
         [eventInstanceList: Event.list(params), eventInstanceTotal: Event.count(),
         expiresTime:session.getAttribute("expiresTime"),
+		accessToken:session.getAttribute("accessToken"),
         user:session.getAttribute("user"),album:album]
     }
 

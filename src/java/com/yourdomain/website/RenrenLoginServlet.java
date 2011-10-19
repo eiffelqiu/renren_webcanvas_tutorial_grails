@@ -45,6 +45,7 @@ public class RenrenLoginServlet extends HttpServlet {
         JSONObject tokenJson = (JSONObject) JSONValue.parse(tokenResult);
         if (tokenJson != null) {
             String accessToken = (String) tokenJson.get("access_token");
+			request.getSession().setAttribute("accessToken", accessToken);
             Long expiresIn = (Long) tokenJson.get("expires_in");//距离过期时的时间段（秒数）
             long currentTime = System.currentTimeMillis() / 1000;
             long expiresTime = currentTime + expiresIn;//即将过期的时间点（秒数）
