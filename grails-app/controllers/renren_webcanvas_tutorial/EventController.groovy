@@ -16,11 +16,11 @@ class EventController {
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         RenrenApiClient apiClient = (RenrenApiClient) session.getAttribute("apiClient")
-        Album album = albumService.fetchAlbum(apiClient)
+        // Album album = albumService.fetchAlbum(apiClient)
         [eventInstanceList: Event.list(params), eventInstanceTotal: Event.count(),
         expiresTime:session.getAttribute("expiresTime"),
 		accessToken:session.getAttribute("accessToken"),
-        user:session.getAttribute("user"),album:album]
+        user:session.getAttribute("user")]
     }
 
     def create = {

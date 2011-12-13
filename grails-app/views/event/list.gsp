@@ -17,8 +17,13 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-            欢迎 : ${user?.name} &nbsp;&nbsp; accessToken : [${accessToken}]<br/>
-            <img src="${album?.url}"/>
+            欢迎 : 
+            
+            user_name: ${user?.name} <p/>
+            user_id: ${user?.uid} <p/>
+            accessToken : [${accessToken}]<p/>
+            
+            <!-- <img src="${album?.url}"/> -->
             <div class="list"> 
                 <table>
                     <thead>

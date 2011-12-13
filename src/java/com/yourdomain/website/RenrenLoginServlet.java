@@ -45,6 +45,7 @@ public class RenrenLoginServlet extends HttpServlet {
         JSONObject tokenJson = (JSONObject) JSONValue.parse(tokenResult);
         if (tokenJson != null) {
             String accessToken = (String) tokenJson.get("access_token");
+			System.out.println("AccessToken: [" + accessToken + "]");
 			request.getSession().setAttribute("accessToken", accessToken);
             Long expiresIn = (Long) tokenJson.get("expires_in");//距离过期时的时间段（秒数）
             long currentTime = System.currentTimeMillis() / 1000;
@@ -53,7 +54,7 @@ public class RenrenLoginServlet extends HttpServlet {
             //调用人人网API获得用户信息
             RenrenApiClient apiClient = new RenrenApiClient(accessToken, true);
             int rrUid = apiClient.getUserService().getLoggedInUser();
-            JSONArray userInfo = apiClient.getUserService().getInfo(String.valueOf(rrUid), "name,headurl,tinyurl");
+            JSONArray userInfo = apiClient.getUserService().getInfo(String.valueOf(rrUid), "name,headurl,tinyurl,read_user_photo,read_user_album");
             if (userInfo != null && userInfo.size() > 0) {
                 JSONObject currentUser = (JSONObject) userInfo.get(0);
 
@@ -62,6 +63,7 @@ public class RenrenLoginServlet extends HttpServlet {
                     String name = (String) currentUser.get("name");
                     String headurl = (String) currentUser.get("headurl");
                     String tinyurl = (String) currentUser.get("tinyurl");
+
                     request.getSession().setAttribute("apiClient", apiClient);
                     // 获取第一个相册
 //                    AlbumWebService albumService = new AlbumServiceImpl(apiClient.getRenrenApiInvoker());
@@ -86,6 +88,8 @@ public class RenrenLoginServlet extends HttpServlet {
                         newUser.setName(name);
                         newUser.setHeadurl(headurl);
                         newUser.setTinyurl(tinyurl);
+						newUser.setUid("" + currentUser.get("uid"));
+						System.out.println("uid: [" + currentUser.get("uid") + "]");
                         //自动拼装一个username并随即生成一个password；实际实现时，这里应该保证
                         username = "renren-" + rrUid;
                         String password = UUID.randomUUID().toString();
